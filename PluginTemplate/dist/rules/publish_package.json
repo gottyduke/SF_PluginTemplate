@@ -1,0 +1,11 @@
+[
+    {
+        "action": "package",
+        "params": [
+            "{dist}\\*.toml",
+            "{dist}\\*.dll",
+            "{dist}\\*.pdb",
+            "{dist}\\{project_name}.v{project_version}.zip"
+        ]
+    }
+]
