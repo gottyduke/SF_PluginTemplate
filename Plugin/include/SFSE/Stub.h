@@ -1,12 +1,9 @@
 #pragma once
 
-
-#include "SFSE/PluginAPI.h"
 #include "DKUtil/Hook.hpp"
-
+#include "SFSE/PluginAPI.h"
 
 #define SFSEAPI __cdecl
-
 
 // interface
 namespace SFSE
@@ -43,18 +40,16 @@ namespace SFSE
 		}
 	};
 
-
 	namespace detail
 	{
 		inline static LoadInterface* storage = nullptr;
 	}
-} // namespace SFSE
-
+}  // namespace SFSE
 
 // stubs
 namespace SFSE
 {
-	inline void Init(LoadInterface* a_intfc) noexcept 
+	inline void Init(LoadInterface* a_intfc) noexcept
 	{
 		if (!a_intfc) {
 			FATAL("SFSEInterface is null"sv);
@@ -65,8 +60,8 @@ namespace SFSE
 	}
 
 	[[nodiscard]] inline constexpr const auto* GetLoadInterface() noexcept { return detail::storage; }
-	[[nodiscard]] inline constexpr const auto* GetTrampolineInterface() noexcept 
-	{ 
+	[[nodiscard]] inline constexpr const auto* GetTrampolineInterface() noexcept
+	{
 		return GetLoadInterface()->QueryInterface<SFSETrampolineInterface>(LoadInterface::kMessaging);
 	}
 	[[nodiscard]] inline constexpr const auto* GetMessagingInterface() noexcept
@@ -83,7 +78,8 @@ namespace SFSE
 			if (mem) {
 				return mem;
 			} else {
-				WARN("requesting allocation from SFSE branch pool failed\n"
+				WARN(
+					"requesting allocation from SFSE branch pool failed\n"
 					"falling back to local trampoline");
 			}
 		}
@@ -93,13 +89,14 @@ namespace SFSE
 		if (mem) {
 			return mem;
 		} else {
-			FATAL("failed to allocate any memory from either branch pool or local trampoline\n"
-				"this is fatal!\nSize : {}", a_size);
+			FATAL(
+				"failed to allocate any memory from either branch pool or local trampoline\n"
+				"this is fatal!\nSize : {}",
+				a_size);
 			std::unreachable();
 		}
 	}
-} // namespace SFSE
-
+}  // namespace SFSE
 
 // versiondata
 namespace SFSE
@@ -126,16 +123,16 @@ namespace SFSE
 		}
 		constexpr void MinimumRequiredXSEVersion(std::uint32_t a_version) noexcept { xseMinimum = a_version; }
 
-		const std::uint32_t dataVersion{ kVersion };	// shipped with xse
-		std::uint32_t pluginVersion = 0;				// version number of your plugin
-		char pluginName[256] = {};						// null-terminated ASCII plugin name (please make this recognizable to users)
-		char author[256] = {};							// null-terminated ASCII plugin author name
-		std::uint32_t addressIndependence;              // describe how you find your addressese using the kAddressIndependence_ enums
-		std::uint32_t structureIndependence;            // describe how you handle structure layout using the kStructureIndependence_ enums
-		std::uint32_t compatibleVersions[16] = {};		// list of compatible versions
-		std::uint32_t xseMinimum = 0;					// minimum version of the script extender required
-		const std::uint32_t reservedNonBreaking = 0;	// set to 0
-		const std::uint32_t reservedBreaking = 0;		// set to 0
+		const std::uint32_t dataVersion{ kVersion };  // shipped with xse
+		std::uint32_t pluginVersion = 0;              // version number of your plugin
+		char pluginName[256] = {};                    // null-terminated ASCII plugin name (please make this recognizable to users)
+		char author[256] = {};                        // null-terminated ASCII plugin author name
+		std::uint32_t addressIndependence;            // describe how you find your addressese using the kAddressIndependence_ enums
+		std::uint32_t structureIndependence;          // describe how you handle structure layout using the kStructureIndependence_ enums
+		std::uint32_t compatibleVersions[16] = {};    // list of compatible versions
+		std::uint32_t xseMinimum = 0;                 // minimum version of the script extender required
+		const std::uint32_t reservedNonBreaking = 0;  // set to 0
+		const std::uint32_t reservedBreaking = 0;     // set to 0
 
 	private:
 		static constexpr void SetCharBuffer(
@@ -158,4 +155,4 @@ namespace SFSE
 	static_assert(offsetof(PluginVersionData, reservedNonBreaking) == 0x254);
 	static_assert(offsetof(PluginVersionData, reservedBreaking) == 0x258);
 	static_assert(sizeof(PluginVersionData) == 0x25C);
-} // namespace SFSE
+}  // namespace SFSE

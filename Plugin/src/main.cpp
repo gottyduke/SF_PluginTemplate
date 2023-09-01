@@ -1,6 +1,5 @@
 #include "SFSE/Stub.h"
 
-
 DLLEXPORT constinit auto SFSEPlugin_Version = []() noexcept {
 	SFSE::PluginVersionData data{};
 
@@ -12,7 +11,6 @@ DLLEXPORT constinit auto SFSEPlugin_Version = []() noexcept {
 
 	return data;
 }();
-
 
 DLLEXPORT bool SFSEAPI SFSEPlugin_Load(SFSE::LoadInterface* a_sfse)
 {
