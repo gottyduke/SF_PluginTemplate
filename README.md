@@ -1,5 +1,5 @@
-# 📑 PluginTemplate
-Generic native dll plugin template for various games.
+# 📑 SFSE Plugin Template
+Native dll plugin template (in-draft) for [starfield script extender](https://github.com/ianpatt/sfse).
 
 ## ⚙ Requirements
 
@@ -7,18 +7,20 @@ Generic native dll plugin template for various games.
   - Add this to your `PATH`
 - [DKUtil](https://github.com/gottyduke/DKUtil)
   - Init & update with git submodule
+- [SFSE](https://github.com/ianpatt/sfse)
+  - Init & update with git submodule
 - [PowerShell](https://github.com/PowerShell/PowerShell/releases/latest)
 - [Vcpkg](https://github.com/microsoft/vcpkg)
   - Add the environment variable `VCPKG_ROOT` with the value as the path to the folder containing vcpkg
 - [Visual Studio Community 2022](https://visualstudio.microsoft.com/)
   - Desktop development with C++
-- [Deploy target](#📦-deployment)
-  - Set custom deploy rules accordingly
+- [Starfield Steam Distribution](#📦-deployment)
+  - Add the environment variable `SFPath` with the value as the path to the game installation
   
 ## 📦 Deployment
 
 This plugin template comes with a simple custom deployer script to enable custom distribution rules fitting most use cases.  
-To get started on adding custom deploy rules, check out the [default examples](PluginTemplate/dist/rules).  
+To get started on adding custom deploy rules, check out the [default examples](Plugin/dist/rules).  
 | action    | usage                                                        |
 | --------- | ------------------------------------------------------------ |
 | `base`    | set `params[0]` to `params[1]`                               |
@@ -45,11 +47,11 @@ project_version // project version same as CMakeLists
 
 ## 🔨 Building
 
-[Create a new github repo from this template](https://github.com/new?template_name=PluginTemplate&template_owner=gottyduke) or: 
+[Create a new github repo from this template](https://github.com/new?template_name=SF_PluginTemplate&template_owner=gottyduke) or: 
 
 ```
-git clone https://github.com/gottyduke/PluginTemplate.git
-cd PluginTemplate
+git clone https://github.com/gottyduke/SF_PluginTemplate.git Plugin
+cd Plugin
 git submodule init
 git submodule update --remote
 .\build-release.ps1
@@ -62,3 +64,4 @@ git submodule update --remote
 ## ❓ Credits
 
 - [Ryan for his commonLibSSE code](https://github.com/Ryan-rsm-McKenzie/CommonLibSSE) which was referenced in DKUtil.
+- [ianpatt's starfield script extender](https://github.com/ianpatt/sfse).

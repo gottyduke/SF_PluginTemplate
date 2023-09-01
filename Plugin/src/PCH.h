@@ -106,12 +106,11 @@
 using namespace std::literals;
 
 #define DLLEXPORT extern "C" [[maybe_unused]] __declspec(dllexport)
+#define SFSEAPI __cdecl
 
 // Plugin
 #include "Plugin.h"
 
 // DKUtil
-#define PLUGIN_MODE
-#define LOG_PATH "NativeMods\\"
 #include "DKUtil/Hook.hpp"
 #include "DKUtil/Logger.hpp"
