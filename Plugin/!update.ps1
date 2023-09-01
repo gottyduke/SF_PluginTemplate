@@ -139,25 +139,33 @@ function Resolve-Rules {
             break
         }
         "copy" {
-            $script:RuleCmds += "Copy-Item $(Resolve-RuleVar $Deployee.params[0]) $(Resolve-RuleVar $Deployee.params[1]) -Force -ErrorAction:SilentlyContinue"
+            $source = $(Resolve-RuleVar $Deployee.params[0])
+            $destination = $(Resolve-RuleVar $Deployee.params[1])
+            $dest_path = $destination.Substring(0, $destination.LastIndexOf('/') + 1)
+            $script:RuleCmds += "New-Item `'$dest_path`' -ItemType Directory -Force -ErrorAction:SilentlyContinue"
+            $script:RuleCmds += "Copy-Item `'$source`' `'$destination`' -Force -Recurse -ErrorAction:SilentlyContinue"
             break
         }
         "copy_if" {
-            $script:RuleCmds += "if (Test-Path $(Resolve-RuleVar $Deployee.params[0]))"
-            $script:RuleCmds += "{ Copy-Item $(Resolve-RuleVar $Deployee.params[0]) $(Resolve-RuleVar $Deployee.params[1]) -Force -ErrorAction:SilentlyContinue }"
+            $source = $(Resolve-RuleVar $Deployee.params[0])
+            $destination = $(Resolve-RuleVar $Deployee.params[1])
+            $dest_path = $destination.Substring(0, $destination.LastIndexOf('/') + 1)
+            $script:RuleCmds += "if (Test-Path `'$source`') {"
+            $script:RuleCmds += "New-Item `'$dest_path`' -ItemType Directory -Force -ErrorAction:SilentlyContinue"
+            $script:RuleCmds += "Copy-Item `'$source`' `'$destination`' -Force -Recurse -ErrorAction:SilentlyContinue }"
             break
         }
         "package" {
             $source_tree = @()
             foreach ($source in $Deployee.params[0..($Deployee.params.Length - 2)]) {
-                $source_tree += , $(Resolve-RuleVar $source)
+                $source_tree += , "`'$(Resolve-RuleVar $source)`'"
             }
-            $script:RuleCmds += "Compress-Archive -Path $($source_tree -join ',') -DestinationPath $(Resolve-RuleVar $Deployee.params[-1]) -Force -ErrorAction:SilentlyContinue"
+            $script:RuleCmds += "Compress-Archive -Path $($source_tree -join ',') -DestinationPath `'$(Resolve-RuleVar $Deployee.params[-1])`' -Force -ErrorAction:SilentlyContinue"
             break
         }
         "remove" {
             foreach ($to_remove in $Deployee.params) {
-                $script:RuleCmds += "Remove-Item $(Resolve-RuleVar $to_remove) -Force -Recurse -ErrorAction:SilentlyContinue"
+                $script:RuleCmds += "Remove-Item `'$(Resolve-RuleVar $to_remove)`' -Force -Recurse -ErrorAction:SilentlyContinue"
             }
             break
         }
