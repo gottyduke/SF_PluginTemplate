@@ -3,6 +3,13 @@
         "action": "copy",
         "params": [
             "{dist}\\*.dll",
+            "{dist}\\{project_name}.asi"
+        ]
+    },
+    {
+        "action": "copy",
+        "params": [
+            "{dist}\\*.asi",
             "{target_base}"
         ]
     },

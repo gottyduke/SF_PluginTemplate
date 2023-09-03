@@ -39,19 +39,6 @@ source_group(
 # dependencies
 find_package(spdlog CONFIG REQUIRED)
 find_dependency_path(DKUtil include/DKUtil/Logger.hpp)
-find_dependency_path(SFSE sfse/sfse.cpp)
-
-# 
-target_compile_options(
-	sfse
-	PRIVATE
-		/WX-
-)
-target_compile_options(
-	sfse_common
-	PRIVATE
-		/WX-
-)
 
 # cmake target
 # runtime
@@ -79,7 +66,6 @@ target_link_libraries(
 	${PROJECT_NAME} 
 	PRIVATE
 		DKUtil::DKUtil
-		sfse::sfse_common
 		spdlog::spdlog
 )
 

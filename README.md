@@ -1,13 +1,11 @@
 # 📑 SFSE Plugin Template
-Native dll plugin template (in-draft) for [starfield script extender](https://github.com/ianpatt/sfse).
+Native dll plugin template (in-draft) for [starfield script extender](https://github.com/ianpatt/sfse). This branch is for ASI loader for temporary usage before SFSE preliminary version drops.
 
 ## ⚙ Requirements
 
 - [CMake](https://cmake.org/)
   - Add this to your `PATH`
 - [DKUtil](https://github.com/gottyduke/DKUtil)
-  - Init & update with git submodule
-- [SFSE](https://github.com/ianpatt/sfse)
   - Init & update with git submodule
 - [PowerShell](https://github.com/PowerShell/PowerShell/releases/latest)
 - [Vcpkg](https://github.com/microsoft/vcpkg)

@@ -3,7 +3,7 @@
         "action": "package",
         "config": "Release",
         "params": [
-            "{dist}\\*.dll",
+            "{dist}\\*.asi",
             "{dist}\\*.ini",
             "{dist}\\*.json",
             "{dist}\\*.toml",
@@ -14,7 +14,7 @@
         "action": "package",
         "config": "RelWithDebInfo",
         "params": [
-            "{dist}\\*.dll",
+            "{dist}\\*.asi",
             "{dist}\\*.pdb",
             "{dist}\\*.ini",
             "{dist}\\*.json",

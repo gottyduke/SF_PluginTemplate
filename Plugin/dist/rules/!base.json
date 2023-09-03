@@ -3,7 +3,7 @@
         "action": "base",
         "params": [
             "{target_base}",
-            "{env:SFPath}\\Data\\SFSE\\Plugins\\"
+            "{env:SFPath}\\Plugins\\"
         ]
     },
     {
