@@ -8,11 +8,36 @@ DLLEXPORT constinit auto SFSEPlugin_Version = []() noexcept {
 	data.AuthorName(Plugin::AUTHOR);
 	data.UsesSigScanning(true);
 	data.HasNoStructUse(true);
+	//data.IsLayoutDependent(true);
+	data.CompatibleVersions({ RUNTIME_VERSION_1_7_23 });
 
 	return data;
 }();
 
-DLLEXPORT bool SFSEAPI SFSEPlugin_Load(SFSE::LoadInterface* a_sfse)
+
+namespace
+{
+	void MessageCallback(SFSE::MessagingInterface::Message* a_msg) noexcept
+	{
+		switch (a_msg->type) {
+		case SFSE::MessagingInterface::kPostLoad:
+			{
+				break;
+			}
+		default:
+			break;
+		}
+	}
+}
+
+
+/**
+// for preload plugins
+void SFSEPlugin_Preload(SFSE::LoadInterface* a_sfse);
+/**/
+
+
+DLLEXPORT bool SFSEAPI SFSEPlugin_Load(SFSEInterface* a_sfse)
 {
 #ifndef NDEBUG
 	while (!IsDebuggerPresent()) {
@@ -27,6 +52,9 @@ DLLEXPORT bool SFSEAPI SFSEPlugin_Load(SFSE::LoadInterface* a_sfse)
 	INFO("{} v{} loaded", Plugin::NAME, Plugin::Version);
 
 	// do stuff
+	SFSE::AllocTrampoline(1 << 10);
+
+	SFSE::GetMessagingInterface()->RegisterListener(MessageCallback);
 
 	return true;
 }

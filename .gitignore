@@ -3,4 +3,4 @@
 .vscode/
 *.zip
 *.timestamp
-deploy.ps1
+deploy-*.ps1
