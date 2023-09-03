@@ -101,7 +101,7 @@ namespace SFSE
 
 		constexpr bool RegisterListener(EventCallback a_callback) const
 		{
-			return RegisterListener("SKSE"sv, a_callback);
+			return RegisterListener("SFSE"sv, a_callback);
 		}
 
 	protected:
