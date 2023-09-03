@@ -31,7 +31,7 @@ function Normalize-Path {
 function Resolve-Files {
     param (
         [Parameter(ValueFromPipeline)][string]$parent = $PSScriptRoot,
-        [string[]]$range = @('include', 'src', 'test', 'dist')
+        [string[]]$range = @('include', 'src', 'test')
     )
     
     process {
@@ -55,7 +55,7 @@ function Resolve-Files {
                 }
             }               
             
-            Get-ChildItem "$parent" -File -ErrorAction SilentlyContinue | Where-Object {
+            Get-ChildItem "$parent/dist" -Exclude "rules" | Get-ChildItem -File -Recurse -ErrorAction SilentlyContinue | Where-Object {
                 ($_.Extension -in ($ConfigExt + $DocsExt)) -and 
                 ($_.Name -notmatch 'cmake|vcpkg')
             } | Resolve-Path -Relative | ForEach-Object {

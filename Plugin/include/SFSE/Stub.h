@@ -95,7 +95,7 @@ namespace SFSE
 			auto success = GetProxy()->RegisterListener(LoadInterface::GetSingleton()->GetPluginHandle(), a_sender.data(), std::bit_cast<SFSEMessagingInterface::EventCallback>(a_callback));
 			if (!success) {
 				FATAL("failed to register messaging listener!\nexpected sender : {}\nmessage handler : {}.{:X}",
-					a_sender, PROJECT_NAME, AsAddress(a_callback)
+					a_sender, Plugin::NAME, AsAddress(a_callback)
 				);
 			}
 
