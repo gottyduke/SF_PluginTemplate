@@ -14,7 +14,6 @@ DLLEXPORT constinit auto SFSEPlugin_Version = []() noexcept {
 	return data;
 }();
 
-
 namespace
 {
 	void MessageCallback(SFSE::MessagingInterface::Message* a_msg) noexcept
@@ -30,12 +29,10 @@ namespace
 	}
 }
 
-
 /**
 // for preload plugins
 void SFSEPlugin_Preload(SFSE::LoadInterface* a_sfse);
 /**/
-
 
 DLLEXPORT bool SFSEAPI SFSEPlugin_Load(SFSEInterface* a_sfse)
 {

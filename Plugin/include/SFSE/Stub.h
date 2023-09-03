@@ -14,8 +14,7 @@ namespace SFSE
 		inline static SFSEInterface* load_storage = nullptr;
 		inline static SFSEMessagingInterface* messaging_storage = nullptr;
 		inline static SFSETrampolineInterface* trampoline_storage = nullptr;
-	} // namespace detail
-
+	}  // namespace detail
 
 	class LoadInterface : public dku::model::Singleton<LoadInterface>
 	{
@@ -53,7 +52,6 @@ namespace SFSE
 		}
 	};
 
-
 	class MessagingInterface : public dku::model::Singleton<MessagingInterface>
 	{
 	public:
@@ -64,14 +62,14 @@ namespace SFSE
 
 		struct Message
 		{
-			const char*   sender;
+			const char* sender;
 			std::uint32_t type;
 			std::uint32_t dataLen;
-			void*         data;
+			void* data;
 		};
 		using EventCallback = std::add_pointer_t<void(Message* a_msg)>;
 
-		enum : std::uint32_t 
+		enum : std::uint32_t
 		{
 			kPostLoad,      // sent to registered plugins once all plugins have been loaded (no data)
 			kPostPostLoad,  // sent right after kPostPostLoad to facilitate the correct dispatching/registering of messages/listeners
@@ -81,10 +79,10 @@ namespace SFSE
 		{
 			auto success = GetProxy()->Dispatch(LoadInterface::GetSingleton()->GetPluginHandle(), a_messageType, a_data, a_dataLength, a_receiver.data());
 			if (!success) {
-				FATAL("failed to dispatch message!\nexpected receiver : {}\n"
+				FATAL(
+					"failed to dispatch message!\nexpected receiver : {}\n"
 					"message {{\ntype : {}\nlength : {}}}",
-					a_receiver, a_messageType, a_dataLength
-				);
+					a_receiver, a_messageType, a_dataLength);
 			}
 
 			return success;
@@ -95,8 +93,7 @@ namespace SFSE
 			auto success = GetProxy()->RegisterListener(LoadInterface::GetSingleton()->GetPluginHandle(), a_sender.data(), std::bit_cast<SFSEMessagingInterface::EventCallback>(a_callback));
 			if (!success) {
 				FATAL("failed to register messaging listener!\nexpected sender : {}\nmessage handler : {}.{:X}",
-					a_sender, PROJECT_NAME, AsAddress(a_callback)
-				);
+					a_sender, PROJECT_NAME, AsAddress(a_callback));
 			}
 
 			return success;
@@ -114,7 +111,6 @@ namespace SFSE
 		}
 	};
 
-	
 	class TrampolineInterface : public dku::model::Singleton<TrampolineInterface>
 	{
 	public:
