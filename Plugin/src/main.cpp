@@ -15,8 +15,6 @@ BOOL APIENTRY DllMain(HMODULE a_hModule, DWORD a_ul_reason_for_call, LPVOID a_lp
 		dku::Logger::Init(Plugin::NAME, std::to_string(Plugin::Version));
 
 		INFO("game type : {}", dku::Hook::GetProcessName());
-
-
 	}
 
 	return TRUE;
