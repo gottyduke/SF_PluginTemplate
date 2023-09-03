@@ -170,9 +170,12 @@ namespace SFSE
 	// offer SFSE reserve pool first, otherwise use local trampoline
 	void* AllocTrampoline(std::size_t a_size, bool a_useSFSEReserve = true)
 	{
+		auto& trampoline = GetTrampoline();
+
 		if (auto intfc = GetTrampolineInterface(); intfc && a_useSFSEReserve) {
 			auto* mem = intfc->AllocateFromBranchPool(a_size);
 			if (mem) {
+				trampoline.set_trampoline(mem, a_size);
 				return mem;
 			} else {
 				WARN(
@@ -181,7 +184,6 @@ namespace SFSE
 			}
 		}
 
-		auto& trampoline = GetTrampoline();
 		auto* mem = trampoline.PageAlloc(a_size);
 		if (mem) {
 			return mem;
