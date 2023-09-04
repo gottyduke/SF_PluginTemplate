@@ -4,7 +4,6 @@
 #include "sfse/PluginAPI.h"
 #include "sfse_common/sfse_version.h"
 
-#define SFSEAPI __cdecl
 
 // interface
 namespace SFSE
