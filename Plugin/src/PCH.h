@@ -98,8 +98,8 @@
 #include <version>
 
 // Clib
-#include "SFSE/SFSE.h"
 #include "RE/Starfield.h"
+#include "SFSE/SFSE.h"
 
 // winnt
 #include <ShlObj_core.h>
@@ -114,7 +114,6 @@ using namespace REL::literals;
 
 // Plugin
 #include "Plugin.h"
-
 
 // DKUtil
 #include "DKUtil/Hook.hpp"
