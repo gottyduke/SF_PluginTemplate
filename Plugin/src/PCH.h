@@ -97,6 +97,10 @@
 #include <vector>
 #include <version>
 
+// Clib
+#include "SFSE/SFSE.h"
+#include "RE/Starfield.h"
+
 // winnt
 #include <ShlObj_core.h>
 
@@ -104,12 +108,13 @@
 #undef max
 
 using namespace std::literals;
+using namespace REL::literals;
 
 #define DLLEXPORT extern "C" [[maybe_unused]] __declspec(dllexport)
-#define SFSEAPI __cdecl
 
 // Plugin
 #include "Plugin.h"
+
 
 // DKUtil
 #include "DKUtil/Hook.hpp"

@@ -1,5 +1,3 @@
-#include "SFSE/Stub.h"
-
 DLLEXPORT constinit auto SFSEPlugin_Version = []() noexcept {
 	SFSE::PluginVersionData data{};
 
@@ -10,13 +8,22 @@ DLLEXPORT constinit auto SFSEPlugin_Version = []() noexcept {
 	//data.UsesAddressLibrary(true);
 	data.HasNoStructUse(true);
 	//data.IsLayoutDependent(true);
-	data.CompatibleVersions({ RUNTIME_VERSION_1_7_23 });
+	data.CompatibleVersions({ SFSE::RUNTIME_LATEST });
 
 	return data;
 }();
 
 namespace
 {
+	struct CalculateDetection
+	{
+		static std::uint8_t* thunk()
+		{
+			return nullptr;
+		}
+		static inline REL::Relocation<decltype(thunk)> func;
+	};
+
 	void MessageCallback(SFSE::MessagingInterface::Message* a_msg) noexcept
 	{
 		switch (a_msg->type) {
@@ -35,7 +42,7 @@ namespace
 void SFSEPlugin_Preload(SFSE::LoadInterface* a_sfse);
 /**/
 
-DLLEXPORT bool SFSEAPI SFSEPlugin_Load(SFSEInterface* a_sfse)
+DLLEXPORT bool SFSEAPI SFSEPlugin_Load(const SFSE::LoadInterface* a_sfse)
 {
 #ifndef NDEBUG
 	while (!IsDebuggerPresent()) {
