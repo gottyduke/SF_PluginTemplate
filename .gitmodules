@@ -3,4 +3,4 @@
 	url = https://github.com/gottyduke/DKUtil.git
 [submodule "extern/CommonLibSF"]
 	path = extern/CommonLibSF
-	url = https://github.com/gottyduke/CommonLibSF.git
+	url = https://github.com/Starfield-Reverse-Engineering/CommonLibSF.git

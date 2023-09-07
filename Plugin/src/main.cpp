@@ -15,15 +15,6 @@ DLLEXPORT constinit auto SFSEPlugin_Version = []() noexcept {
 
 namespace
 {
-	struct CalculateDetection
-	{
-		static std::uint8_t* thunk()
-		{
-			return nullptr;
-		}
-		static inline REL::Relocation<decltype(thunk)> func;
-	};
-
 	void MessageCallback(SFSE::MessagingInterface::Message* a_msg) noexcept
 	{
 		switch (a_msg->type) {
