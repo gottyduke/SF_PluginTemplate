@@ -104,7 +104,7 @@ if (MSVC)
 			/Zc:trigraphs
 			/Zc:wchar_t
 			/wd4200 # nonstandard extension used : zero-sized array in struct/union
-			/FI${CMAKE_BINARY_DIR}/CMakeFiles/${PROJECT_NAME}.dir/$<CONFIG>/cmake_pch.hxx
+			/FI${CMAKE_CURRENT_SOURCE_DIR}/src/PCH.h
 	)
 endif()
 
