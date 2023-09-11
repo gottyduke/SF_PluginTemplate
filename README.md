@@ -35,7 +35,6 @@ git submodule init
 git submodule update --remote
 .\build-release.ps1
 ```
-> Don't forget to change project name within `Plugin/CMakeLists.txt` and update `vcpkg.json` accordingly.
 
 ### 📦 Deployment
 
@@ -71,6 +70,5 @@ This project bundles [DKUtil](https://github.com/gottyduke/DKUtil).
 
 ## ❓ Credits
 
-- [Ryan for his commonLibSSE code](https://github.com/Ryan-rsm-McKenzie/CommonLibSSE) which was referenced in DKUtil.
 - [ianpatt's starfield script extender](https://github.com/ianpatt/sfse).
-- [Original plugin template](https://github.com/gottyduke/PluginTemplate)
+- [Original plugin template](https://github.com/gottyduke/SF_PluginTemplate)
