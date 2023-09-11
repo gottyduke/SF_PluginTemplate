@@ -1,5 +1,5 @@
 # 📑 SFSE Plugin Template
-Native dll plugin template (in-draft) for [starfield script extender](https://github.com/ianpatt/sfse).
+Native dll plugin for [starfield script extender](https://github.com/ianpatt/sfse).
 
 ## ⚙ Requirements
 

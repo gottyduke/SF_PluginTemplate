@@ -34,7 +34,7 @@ try {
     # update CMakeLists.txt
     Write-Host "Updating $($manifests[0])"
     $cmake = [IO.File]::ReadAllText($manifests[0])
-    $cmake = $cmake -replace "(?<=project\(\s+\s+).*?(?=\n\s+VERSION)", "`t$project"
+    $cmake = $cmake -replace "(?<=project\(\s+\s+).*?(?=\n\s+VERSION)", "$project"
     [IO.File]::WriteAllText($manifests[0], $cmake)
     Write-Host "...Ok"
 

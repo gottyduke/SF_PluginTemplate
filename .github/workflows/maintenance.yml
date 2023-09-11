@@ -1,7 +1,9 @@
+name: Maintenance
+
 on: [push]
 
 jobs:
-  build:
+  maintenance:
     runs-on: ubuntu-latest
 
     steps:
