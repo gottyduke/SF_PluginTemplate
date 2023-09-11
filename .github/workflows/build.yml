@@ -17,7 +17,7 @@ jobs:
       - name: Build
         run: |
           Remove-Item build -Recurse -Force -ErrorAction:SilentlyContinue -Confirm:$False | Out-Null;
-          cmake -B build -S Plugin --preset=build-release-msvc-ninja -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake;
+          cmake -B build -S Plugin --preset=build-release-msvc-msvc -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake;
           cmake --build build
           
       - name: Upload Artifact
