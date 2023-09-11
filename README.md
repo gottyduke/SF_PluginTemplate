@@ -1,6 +1,8 @@
 # 📑 SFSE Plugin Template
 Native dll plugin for [starfield script extender](https://github.com/ianpatt/sfse).
 
+[Create a new plugin project from this template](https://github.com/new?template_name=SF_PluginTemplate&template_owner=gottyduke) 
+
 ## ⚙ Requirements
 
 - [CMake](https://cmake.org/)
@@ -27,13 +29,11 @@ Native dll plugin for [starfield script extender](https://github.com/ianpatt/sfs
 
 ### 🔨 Building
 
-[Create a new github repo from this template](https://github.com/new?template_name=SF_PluginTemplate&template_owner=gottyduke) or (unrecommended): 
 ```
-git clone https://github.com/gottyduke/SF_PluginTemplate.git Plugin
-cd Plugin
-git submodule init
-git submodule update --remote
-.\build-release.ps1
+.\update-submodule.bat
+.\make-sln-msvc.bat
+// or generate solution
+.\build-msvc.bat
 ```
 
 ### 📦 Deployment
