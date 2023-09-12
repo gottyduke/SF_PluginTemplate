@@ -5,15 +5,16 @@ Native dll plugin for [starfield script extender](https://github.com/ianpatt/sfs
 
 ## ⚙ Requirements
 
-- [CMake](https://cmake.org/)
+- [CMake 3.26+](https://cmake.org/)
   - Add this to your `PATH`
-- [DKUtil](https://github.com/gottyduke/DKUtil)
+- [CommonLibSF](https://github.com/ianpatt/sfse)
   - Init & update with git submodule
-- [SFSE](https://github.com/ianpatt/sfse)
+- [DKUtil](https://github.com/gottyduke/DKUtil)
   - Init & update with git submodule
 - [PowerShell](https://github.com/PowerShell/PowerShell/releases/latest)
 - [Vcpkg](https://github.com/microsoft/vcpkg)
   - Add the environment variable `VCPKG_ROOT` with the value as the path to the folder containing vcpkg
+  - Make sure your local vcpkg port is up-to-date by pulling the latest and do `vcpkg integrate install`
 - [Visual Studio Community 2022](https://visualstudio.microsoft.com/)
   - Desktop development with C++
 - [Starfield Steam Distribution](#-deployment)
@@ -71,4 +72,4 @@ This project bundles [DKUtil](https://github.com/gottyduke/DKUtil).
 ## ❓ Credits
 
 - [ianpatt's starfield script extender](https://github.com/ianpatt/sfse).
-- [Original plugin template](https://github.com/gottyduke/SF_PluginTemplate)
+- [CommonLibSF, a collaborative effort project](https://github.com/Starfield-Reverse-Engineering/CommonLibSF)
