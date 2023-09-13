@@ -7,10 +7,6 @@ Native dll plugin for [starfield script extender](https://github.com/ianpatt/sfs
 
 - [CMake 3.26+](https://cmake.org/)
   - Add this to your `PATH`
-- [CommonLibSF](https://github.com/ianpatt/sfse)
-  - Init & update with git submodule
-- [DKUtil](https://github.com/gottyduke/DKUtil)
-  - Init & update with git submodule
 - [PowerShell](https://github.com/PowerShell/PowerShell/releases/latest)
 - [Vcpkg](https://github.com/microsoft/vcpkg)
   - Add the environment variable `VCPKG_ROOT` with the value as the path to the folder containing vcpkg
@@ -30,11 +26,14 @@ Native dll plugin for [starfield script extender](https://github.com/ianpatt/sfs
 
 ### 🔨 Building
 
+- [CommonLibSF](https://github.com/Starfield-Reverse-Engineering/CommonLibSF)
+- [DKUtil](https://github.com/gottyduke/DKUtil)
+> These two dependencies can either be local fork (by specifying `CommonLibSFPath` and `DKUtilPath`) or via git submodule(`update-submodule.bat`).
+> If having multiple projects, to avoid having copies of CommonLibSF and DKUtil in each of them, it's suggested to use the local fork and environment path approach, so all projects share the same package.
+
 ```
-.\update-submodule.bat
 .\make-sln-msvc.bat
-// or generate solution
-.\build-msvc.bat
+cmake --build build
 ```
 
 ### 📦 Deployment
