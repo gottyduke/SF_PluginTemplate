@@ -28,7 +28,9 @@ Native dll plugin for [starfield script extender](https://github.com/ianpatt/sfs
 
 - [CommonLibSF](https://github.com/Starfield-Reverse-Engineering/CommonLibSF)
 - [DKUtil](https://github.com/gottyduke/DKUtil)
-> These two dependencies can either be local fork (by specifying `CommonLibSFPath` and `DKUtilPath`) or via git submodule(`update-submodule.bat`).
+
+These two dependencies can be setup either via git submodule (by executing `update-submodule.bat`) or through a local git repo (by specifying environment variable `CommonLibSFPath` and `DKUtilPath` pointing to local git repo path).
+
 > If having multiple projects, to avoid having copies of CommonLibSF and DKUtil in each of them, it's suggested to use the local fork and environment path approach, so all projects share the same package.
 
 ```
