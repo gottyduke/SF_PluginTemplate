@@ -1,3 +1,5 @@
+#include "DKUtil/Hook.hpp"
+
 DLLEXPORT constinit auto SFSEPlugin_Version = []() noexcept {
 	SFSE::PluginVersionData data{};
 
@@ -41,7 +43,7 @@ DLLEXPORT bool SFSEAPI SFSEPlugin_Load(const SFSE::LoadInterface* a_sfse)
 	}
 #endif
 
-	SFSE::Init(a_sfse);
+	SFSE::Init(a_sfse, false);
 
 	DKUtil::Logger::Init(Plugin::NAME, std::to_string(Plugin::Version));
 
