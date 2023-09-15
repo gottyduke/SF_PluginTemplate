@@ -20,7 +20,7 @@ BEGIN
 			VALUE "FileDescription", "@PROJECT_NAME@"
 			VALUE "FileVersion", "@PROJECT_VERSION@.0"
 			VALUE "InternalName", "@PROJECT_NAME@"
-			VALUE "LegalCopyright", "MIT License"
+			VALUE "LegalCopyright", "GPL-3.0 or later WITH Modding Exception AND GPL-3.0 Linking Exception(with Corresponding Source)"
 			VALUE "ProductName", "@PROJECT_NAME@"
 			VALUE "ProductVersion", "@PROJECT_VERSION@.0"
 		END

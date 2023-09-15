@@ -48,7 +48,7 @@ This project bundles [DKUtil](https://github.com/gottyduke/DKUtil).
 
 ## 📖 License
 
-[MIT](LICENSE)
+[GPL-3.0-or-later](COPYING) WITH [Modding Exception AND GPL-3.0 Linking Exception (with Corresponding Source)](EXCEPTIONS). Specifically, the Modded Code is Starfield (and its variants) and Modding Libraries include [Starfield Script Extender](https://github.com/ianpatt/sfse) and [DKUtil](https://github.com/gottyduke/DKUtil/) (and variants).
 
 ## ❓ Credits
 
