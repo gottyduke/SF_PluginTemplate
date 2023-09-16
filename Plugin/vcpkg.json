@@ -5,7 +5,6 @@
     "description": "sfse plugin for starfield",
     "homepage": "https://github.com/gottyduke/SF_PluginTemplate",
     "dependencies": [
-        "fmt",
         "spdlog",
         "nlohmann-json",
         "simpleini",
