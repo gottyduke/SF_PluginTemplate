@@ -5,7 +5,7 @@ Native dll plugin for [starfield script extender](https://github.com/ianpatt/sfs
 
 ## 📖 License
 
-By using this template, you agree to comply with [CommonLibSF](https://github.com/Starfield-Reverse-Engineering/CommonLibSF) license, which is [GPL-3.0-or-later](COPYING) WITH [Modding Exception AND GPL-3.0 Linking Exception (with Corresponding Source)](EXCEPTIONS). Specifically, the Modded Code is Starfield (and its variants) and Modding Libraries include [Starfield Script Extender](https://github.com/ianpatt/sfse) and [DKUtil](https://github.com/gottyduke/DKUtil/) (and variants).  
+By using [this branch](https://github.com/gottyduke/SF_PluginTemplate/tree/main), you agree to comply with [CommonLibSF](https://github.com/Starfield-Reverse-Engineering/CommonLibSF) license, which is [GPL-3.0-or-later](COPYING) WITH [Modding Exception AND GPL-3.0 Linking Exception (with Corresponding Source)](EXCEPTIONS). Specifically, the Modded Code is Starfield (and its variants) and Modding Libraries include [Starfield Script Extender](https://github.com/ianpatt/sfse) and [DKUtil](https://github.com/gottyduke/DKUtil/) (and variants).  
 
 To put it shortly: when you distribute a binary linked against CommonLibSF, you are obliged to provide access to the source code as well.  
 
@@ -39,7 +39,7 @@ These dependencies can be configured through the git submodule by running `updat
 
 In order to enable local git repository lookup, existing folders within `extern` should be **removed**.
 
-> To prevent duplicating submodules in each of the local projects, it's recommended to clone the CommonLibSF and DKUtil repositories locally. Then, set the environment path accordingly, this ensures all projects share the same package.  
+> To prevent duplicating submodules in multiple local projects, it's recommended to clone the CommonLibSF and DKUtil repositories locally. Then, set the environment path accordingly, this ensures all projects share the same package.  
 > Additionally, you can integrate a personal fork of CommonLibSF; this setup makes testing modifications with a plugin project easily.
 
 ### 🔨 Building
@@ -55,7 +55,6 @@ A Visual Studio solution will be generated inside `build` folder.
 This project bundles [DKUtil](https://github.com/gottyduke/DKUtil).  
 This plugin template has auto deployment rules for easier build-and-test, build-and-package features, using simple json rules. [Read more here!](https://github.com/gottyduke/SF_PluginTemplate/wiki/Custom-deployment-rules)  
 > Both enabled by default.
-
 
 ## ❓ Credits
 
