@@ -9,8 +9,8 @@ namespace SFSE
 {
 	namespace detail
 	{
-		inline static SFSEInterface* load_storage = nullptr;
-		inline static SFSEMessagingInterface* messaging_storage = nullptr;
+		inline static SFSEInterface*           load_storage = nullptr;
+		inline static SFSEMessagingInterface*  messaging_storage = nullptr;
 		inline static SFSETrampolineInterface* trampoline_storage = nullptr;
 	}  // namespace detail
 
@@ -31,9 +31,9 @@ namespace SFSE
 			kTotal,
 		};
 
-		[[nodiscard]] constexpr auto RuntimeVersion() const { return GetProxy()->runtimeVersion; }
-		[[nodiscard]] constexpr auto SFSEVersion() const { return GetProxy()->sfseVersion; }
-		[[nodiscard]] constexpr auto GetPluginHandle() const { return handle; };
+		[[nodiscard]] constexpr auto        RuntimeVersion() const { return GetProxy()->runtimeVersion; }
+		[[nodiscard]] constexpr auto        SFSEVersion() const { return GetProxy()->sfseVersion; }
+		[[nodiscard]] constexpr auto        GetPluginHandle() const { return handle; };
 		[[nodiscard]] constexpr const auto* GetPluginInfo(const char* a_name) const { return GetProxy()->GetPluginInfo(a_name); }
 		template <typename T>
 		[[nodiscard]] constexpr T* QueryInterface(std::uint32_t a_id) const
@@ -60,10 +60,10 @@ namespace SFSE
 
 		struct Message
 		{
-			const char* sender;
+			const char*   sender;
 			std::uint32_t type;
 			std::uint32_t dataLen;
-			void* data;
+			void*         data;
 		};
 		using EventCallback = std::add_pointer_t<void(Message* a_msg)>;
 
@@ -221,21 +221,21 @@ namespace SFSE
 		}
 		constexpr void MinimumRequiredXSEVersion(std::uint32_t a_version) noexcept { xseMinimum = a_version; }
 
-		const std::uint32_t dataVersion{ kVersion };  // shipped with xse
-		std::uint32_t pluginVersion = 0;              // version number of your plugin
-		char pluginName[256] = {};                    // null-terminated ASCII plugin name (please make this recognizable to users)
-		char author[256] = {};                        // null-terminated ASCII plugin author name
-		std::uint32_t addressIndependence;            // describe how you find your addressese using the kAddressIndependence_ enums
-		std::uint32_t structureCompatibility;         // describe how you handle structure layout using the kStructureIndependence_ enums
-		std::uint32_t compatibleVersions[16] = {};    // list of compatible versions
-		std::uint32_t xseMinimum = 0;                 // minimum version of the script extender required
-		const std::uint32_t reservedNonBreaking = 0;  // set to 0
-		const std::uint32_t reservedBreaking = 0;     // set to 0
+		const std::uint32_t dataVersion{ kVersion };      // shipped with xse
+		std::uint32_t       pluginVersion = 0;            // version number of your plugin
+		char                pluginName[256] = {};         // null-terminated ASCII plugin name (please make this recognizable to users)
+		char                author[256] = {};             // null-terminated ASCII plugin author name
+		std::uint32_t       addressIndependence;          // describe how you find your addressese using the kAddressIndependence_ enums
+		std::uint32_t       structureCompatibility;       // describe how you handle structure layout using the kStructureIndependence_ enums
+		std::uint32_t       compatibleVersions[16] = {};  // list of compatible versions
+		std::uint32_t       xseMinimum = 0;               // minimum version of the script extender required
+		const std::uint32_t reservedNonBreaking = 0;      // set to 0
+		const std::uint32_t reservedBreaking = 0;         // set to 0
 
 	private:
 		static constexpr void SetCharBuffer(
 			std::string_view a_src,
-			std::span<char> a_dst) noexcept
+			std::span<char>  a_dst) noexcept
 		{
 			assert(a_src.size() < a_dst.size());
 			std::ranges::fill(a_dst, '\0');

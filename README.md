@@ -33,7 +33,7 @@ These dependencies can be configured through the git submodule by running `updat
 
 In order to enable local git repository lookup, existing folders within `extern` should be **removed**.
 
-> To prevent duplicating submodules in each of the local projects, it's recommended to clone the SFSE and DKUtil repositories locally. Then, set the environment path accordingly, this ensures all projects share the same package.  
+> To prevent duplicating submodules in multiple local projects, it's recommended to clone the SFSE and DKUtil repositories locally. Then, set the environment path accordingly, this ensures all projects share the same package.  
 > Additionally, you can integrate a personal fork of SFSE; this setup makes testing modifications with a plugin project easily.
 
 ### 🔨 Building
@@ -52,7 +52,7 @@ This plugin template has auto deployment rules for easier build-and-test, build-
 
 ## 📖 License
 
-[MIT](LICENSE)
+This branch is licensed under [MIT](LICENSE).
 
 ## ❓ Credits
 
