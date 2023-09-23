@@ -18,8 +18,6 @@ BOOL APIENTRY DllMain(HMODULE a_hModule, DWORD a_ul_reason_for_call, LPVOID a_lp
 		// this allocates 1024 bytes for development builds, you can
 		// adjust the value accordingly with the log result for release builds
 		dku::Hook::Trampoline::AllocTrampoline(1 << 10);
-
-
 	}
 
 	return TRUE;
