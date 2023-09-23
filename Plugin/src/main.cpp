@@ -40,7 +40,7 @@ DLLEXPORT bool SFSEAPI SFSEPlugin_Load(const SFSE::LoadInterface* a_sfse)
 	// do stuff
 	// this allocates 1024 bytes for development builds, you can
 	// adjust the value accordingly with the log result for release builds
-	SFSE::AllocTrampoline(1 << 10);
+	//SFSE::AllocTrampoline(1 << 10);
 
 	SFSE::GetMessagingInterface()->RegisterListener(MessageCallback);
 
