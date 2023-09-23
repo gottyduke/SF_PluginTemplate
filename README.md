@@ -1,21 +1,22 @@
 # 📑 SFSE Plugin Template
-Native dll plugin template (in-draft) for [starfield script extender](https://github.com/ianpatt/sfse). This branch is for ASI loader for temporary usage before SFSE preliminary version drops.
+Native dll plugin for starfield. This branch is for ASI loader. 
+
+[Create a new plugin project from this template](https://github.com/new?template_name=SF_PluginTemplate&template_owner=gottyduke) and wait for the first workflow action to finish, it will setup project automatically. **Make sure to include all branches**.  
 
 ## ⚙ Requirements
 
-- [CMake](https://cmake.org/)
-  - Add this to your `PATH`
-- [DKUtil](https://github.com/gottyduke/DKUtil)
-  - Init & update with git submodule
+- [CMake 3.26+](https://cmake.org/)
+  - Add this to your `PATH` during installtion/updating
 - [PowerShell](https://github.com/PowerShell/PowerShell/releases/latest)
 - [Vcpkg](https://github.com/microsoft/vcpkg)
-  - Add the environment variable `VCPKG_ROOT` with the value as the path to the folder containing vcpkg
+  - Set the `VCPKG_ROOT` environment variable to the path of the vcpkg folder
+  - Make sure your local vcpkg port is up-to-date by pulling the latest and do `vcpkg integrate install`
 - [Visual Studio Community 2022](https://visualstudio.microsoft.com/)
   - Desktop development with C++
 - [Starfield Steam Distribution](#-deployment)
-  - Add the environment variable `SFPath` with the value as the path to the game installation
+  - Set the `SFPath` environment variable to the path of the game installation
   
-## Get started
+## ⬇️ Get started
 
 ### 💻 Register Visual Studio as a Generator
 
@@ -23,45 +24,29 @@ Native dll plugin template (in-draft) for [starfield script extender](https://gi
 - Run `cmake`
 - Close the cmd window
 
+### 📦 Dependencies
+
+- [DKUtil](https://github.com/gottyduke/DKUtil)
+
+These dependencies can be configured through the git submodule by running `update-submodule.bat`. Alternatively, the dependencies can also use a local git repository, by setting the `DKUtilPath` environment variable to the path of the local git repository.
+
+In order to enable local git repository lookup, existing folders within `extern` should be **removed**.
+
+> To prevent duplicating submodules in multiple local projects, it's recommended to clone the DKUtil repositories locally. Then, set the environment path accordingly, this ensures all projects share the same package.  
+
 ### 🔨 Building
 
-[Create a new github repo from this template](https://github.com/new?template_name=SF_PluginTemplate&template_owner=gottyduke) or (unrecommended): 
 ```
-git clone https://github.com/gottyduke/SF_PluginTemplate.git Plugin
-cd Plugin
-git submodule init
-git submodule update --remote
-.\build-release.ps1
+.\make-sln-msvc.bat
+cmake --build build --config Release
 ```
-> Don't forget to change project name within `Plugin/CMakeLists.txt` and update `vcpkg.json` accordingly.
+A Visual Studio solution will be generated inside `build` folder.
 
-### 📦 Deployment
+### ➕ Addon
 
-This plugin template comes with a simple custom deployer script to enable custom distribution rules fitting most use cases.  
-To get started on adding custom deploy rules, check out the [default examples](Plugin/dist/rules).  
-| action    | usage                                                        |
-| --------- | ------------------------------------------------------------ |
-| `base`    | set variable `params[0]` with value `params[1]`              |
-| `copy`    | copy `params[0]` to `params[1]`                              |
-| `copy_if` | do `copy` if file exists                                     |
-| `package` | add `params[0..-1]` list of sources to zip file `params[-1]` |
-| `remove`  | remove `params` list of sources                              |
-| `script`  | execute raw powershell script                                |
-
-
-The following base variables are provided by default:
-```
-cmake_output    // this is the binary output path
-dist            // this is the dist folder path, also the working directory of deployer script
-project_name    // project name same as CMakeLists
-project_version // project version same as CMakeLists
-```
-
-Deploy actions can be enabled by build configuration(`debug`, `release`, `relwithdebinfo`, etc)
-
-### ➕ DKUtil addon
-
-This project bundles [DKUtil](https://github.com/gottyduke/DKUtil).
+This project bundles [DKUtil](https://github.com/gottyduke/DKUtil).  
+This plugin template has auto deployment rules for easier build-and-test, build-and-package features, using simple json rules. [Read more here!](https://github.com/gottyduke/SF_PluginTemplate/wiki/Custom-deployment-rules)  
+> Both enabled by default.
 
 ## 📖 License
 
@@ -70,5 +55,4 @@ This project bundles [DKUtil](https://github.com/gottyduke/DKUtil).
 ## ❓ Credits
 
 - [Ryan for his commonLibSSE code](https://github.com/Ryan-rsm-McKenzie/CommonLibSSE) which was referenced in DKUtil.
-- [ianpatt's starfield script extender](https://github.com/ianpatt/sfse).
-- [Original plugin template](https://github.com/gottyduke/PluginTemplate)
+- [Original plugin template](https://github.com/gottyduke/PluginTemplate).
