@@ -50,7 +50,7 @@ This plugin template has auto deployment rules for easier build-and-test, build-
 
 ## 📖 License
 
-[MIT](LICENSE)
+This branch is licensed under [MIT](LICENSE).
 
 ## ❓ Credits
 
