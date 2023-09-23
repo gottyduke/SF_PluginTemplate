@@ -38,7 +38,7 @@ DLLEXPORT bool SFSEAPI SFSEPlugin_Load(const SFSE::LoadInterface* a_sfse)
 	INFO("{} v{} loaded", Plugin::NAME, Plugin::Version);
 
 	// do stuff
-	// this allocates 1024 bytes for development builds, you can 
+	// this allocates 1024 bytes for development builds, you can
 	// adjust the value accordingly with the log result for release builds
 	SFSE::AllocTrampoline(1 << 10);
 
