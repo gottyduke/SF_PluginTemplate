@@ -1,10 +1,9 @@
 {
-    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
-    "name": "sfse-plugin-template",
+    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+    "name": "sf-plugin-template-asi",
     "version-string": "1.0.0",
-    "description": "plugin template for SFSE native plugins",
+    "description": "plugins template for starfield asi native plugins",
     "dependencies": [
-        "fmt",
         "spdlog",
         "nlohmann-json",
         "simpleini",

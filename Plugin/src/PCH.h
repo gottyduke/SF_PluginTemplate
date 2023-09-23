@@ -113,5 +113,6 @@ using namespace std::literals;
 
 // DKUtil
 #define LOG_PATH "Plugins\\"
+#define CONFIG_PATH "Plugins\\"
 #include "DKUtil/Hook.hpp"
 #include "DKUtil/Logger.hpp"
