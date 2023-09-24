@@ -40,7 +40,8 @@ These dependencies can be configured through the git submodule by running `updat
 In order to enable local git repository lookup, existing folders within `extern` should be **removed**.
 
 > To prevent duplicating submodules in multiple local projects, it's recommended to clone the CommonLibSF and DKUtil repositories locally. Then, set the environment path accordingly, this ensures all projects share the same package.  
-> Additionally, you can integrate a personal fork of CommonLibSF; this setup makes testing modifications with a plugin project easily.
+
+> Additionally, you can use a personal fork of CommonLibSF; this setup makes testing modifications with a plugin project easily.
 
 ### 🔨 Building
 
@@ -50,13 +51,16 @@ cmake --build build --config Release
 ```
 A Visual Studio solution will be generated inside `build` folder.
 
+### ❓ Development FAQ.
+
+Check out the [wiki page](https://github.com/gottyduke/SF_PluginTemplate/wiki/Common-FAQ.) and/or feel free to open an issue.  
+
 ### ➕ Addon
 
 This project bundles [DKUtil](https://github.com/gottyduke/DKUtil).  
-This plugin template has auto deployment rules for easier build-and-test, build-and-package features, using simple json rules. [Read more here!](https://github.com/gottyduke/SF_PluginTemplate/wiki/Custom-deployment-rules)  
-> Both enabled by default.
+This project has auto deployment rules for easier build-and-test, build-and-package features, using simple json rules. [Read more here!](https://github.com/gottyduke/SF_PluginTemplate/wiki/Custom-deployment-rules)  
 
-## ❓ Credits
+## 🏅 Credits
 
 - [ianpatt's starfield script extender](https://github.com/ianpatt/sfse).
 - [CommonLibSF, a collaborative effort project](https://github.com/Starfield-Reverse-Engineering/CommonLibSF)
