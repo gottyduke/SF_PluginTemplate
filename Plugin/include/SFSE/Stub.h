@@ -206,13 +206,34 @@ namespace SFSE
 			kVersion = 1,
 		};
 
+		// describe how you find your addresses
+		enum class AddressIndependence : std::uint32_t
+		{
+			kNone = 0,
+			// signature matching only
+			kSignatureScanning = 1 << 0,
+			// Address Library v1 (https://www.nexusmods.com/starfield/mods/3256)
+			kAddressLibrary = 1 << 1,
+		};
+
+		// describe your structure compatibility
+		enum class StructureIndependence : std::uint32_t
+		{
+			kNone = 0,
+			// doesn't use any game structures
+			kNoStructs = 1 << 0,
+			// works with the structure layout the game shipped with
+			kInitialLayout = 1 << 1,
+			// additional bits will be added here when breaking changes happen
+		};
+
 		constexpr void PluginVersion(std::uint32_t a_version) noexcept { pluginVersion = a_version; }
 		constexpr void PluginName(std::string_view a_plugin) noexcept { SetCharBuffer(a_plugin, std::span{ pluginName }); }
 		constexpr void AuthorName(std::string_view a_name) noexcept { SetCharBuffer(a_name, std::span{ author }); }
-		constexpr void UsesSigScanning(bool a_value) noexcept { addressIndependence = 1 << static_cast<std::uint32_t>(!a_value); }
-		constexpr void UsesAddressLibrary(bool a_value) noexcept { addressIndependence = 1 << static_cast<std::uint32_t>(a_value); }
-		constexpr void HasNoStructUse(bool a_value) noexcept { structureCompatibility = 1 << static_cast<std::uint32_t>(!a_value); }
-		constexpr void IsLayoutDependent(bool a_value) noexcept { structureCompatibility = 1 << static_cast<std::uint32_t>(a_value); }
+		constexpr void UsesSigScanning(bool a_value) noexcept { addressIndependence.set(AddressIndependence::kSignatureScanning); }
+		constexpr void UsesAddressLibrary(bool a_value) noexcept { addressIndependence.set(AddressIndependence::kAddressLibrary); }
+		constexpr void HasNoStructUse(bool a_value) noexcept { structureCompatibility.set(StructureIndependence::kNoStructs); }
+		constexpr void IsLayoutDependent(bool a_value) noexcept { structureCompatibility.set(StructureIndependence::kInitialLayout); }
 		constexpr void CompatibleVersions(std::initializer_list<std::uint32_t> a_versions) noexcept
 		{
 			// must be zero-terminated
@@ -221,16 +242,16 @@ namespace SFSE
 		}
 		constexpr void MinimumRequiredXSEVersion(std::uint32_t a_version) noexcept { xseMinimum = a_version; }
 
-		const std::uint32_t dataVersion{ kVersion };      // shipped with xse
-		std::uint32_t       pluginVersion = 0;            // version number of your plugin
-		char                pluginName[256] = {};         // null-terminated ASCII plugin name (please make this recognizable to users)
-		char                author[256] = {};             // null-terminated ASCII plugin author name
-		std::uint32_t       addressIndependence;          // describe how you find your addressese using the kAddressIndependence_ enums
-		std::uint32_t       structureCompatibility;       // describe how you handle structure layout using the kStructureIndependence_ enums
-		std::uint32_t       compatibleVersions[16] = {};  // list of compatible versions
-		std::uint32_t       xseMinimum = 0;               // minimum version of the script extender required
-		const std::uint32_t reservedNonBreaking = 0;      // set to 0
-		const std::uint32_t reservedBreaking = 0;         // set to 0
+		const std::uint32_t                     dataVersion{ kVersion };                                 // shipped with xse
+		std::uint32_t                           pluginVersion = 0;                                       // version number of your plugin
+		char                                    pluginName[256] = {};                                    // null-terminated ASCII plugin name (please make this recognizable to users)
+		char                                    author[256] = {};                                        // null-terminated ASCII plugin author name
+		dku::enumeration<AddressIndependence>   addressIndependence{ AddressIndependence::kNone };       // describe how you find your addressese using the kAddressIndependence_ enums
+		dku::enumeration<StructureIndependence> structureCompatibility{ StructureIndependence::kNone };  // describe how you handle structure layout using the kStructureIndependence_ enums
+		std::uint32_t                           compatibleVersions[16] = {};                             // list of compatible versions
+		std::uint32_t                           xseMinimum = 0;                                          // minimum version of the script extender required
+		const std::uint32_t                     reservedNonBreaking = 0;                                 // set to 0
+		const std::uint32_t                     reservedBreaking = 0;                                    // set to 0
 
 	private:
 		static constexpr void SetCharBuffer(
