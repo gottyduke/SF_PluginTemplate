@@ -21,7 +21,6 @@ DLLEXPORT constinit auto SFSEPlugin_Version = []() noexcept {
 	return data;
 }();
 
-
 namespace
 {
 	void MessageCallback(SFSE::MessagingInterface::Message* a_msg) noexcept
