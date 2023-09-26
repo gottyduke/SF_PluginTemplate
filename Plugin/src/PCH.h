@@ -126,10 +126,16 @@ DLLEXPORT constinit auto SFSEPlugin_Version = []() noexcept {
 	data.PluginVersion(Plugin::Version);
 	data.PluginName(Plugin::NAME);
 	data.AuthorName(Plugin::AUTHOR);
-	data.UsesAddressLibrary(true);
+
+	// REL::ID usage instead of REL::Offset
+	//data.UsesAddressLibrary(true);
+	// Version independent signature scanning
 	//data.UsesSigScanning(true);
-	data.IsLayoutDependent(true);
+	
+	// Uses version specific structure definitions
+	//data.IsLayoutDependent(true);
 	//data.HasNoStructUse(true);
+
 	data.CompatibleVersions({ SFSE::RUNTIME_LATEST });
 
 	return data;
