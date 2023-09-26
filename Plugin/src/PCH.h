@@ -131,7 +131,7 @@ DLLEXPORT constinit auto SFSEPlugin_Version = []() noexcept {
 	//data.UsesAddressLibrary(true);
 	// Version independent signature scanning
 	//data.UsesSigScanning(true);
-	
+
 	// Uses version specific structure definitions
 	//data.IsLayoutDependent(true);
 	//data.HasNoStructUse(true);
