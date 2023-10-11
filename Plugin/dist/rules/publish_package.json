@@ -1,12 +1,37 @@
 [
+	{
+        "action": "copy",
+        "params": [
+            "{dist}\\*.asi",
+            "{dist}\\Plugins\\"
+        ]
+    },
+	{
+        "action": "copy_if",
+        "params": [
+            "{dist}\\*.ini",
+            "{dist}\\Plugins\\"
+        ]
+    },
+	{
+        "action": "copy_if",
+        "params": [
+            "{dist}\\*.json",
+            "{dist}\\Plugins\\"
+        ]
+    },
+	{
+        "action": "copy_if",
+        "params": [
+            "{dist}\\*.toml",
+            "{dist}\\Plugins\\"
+        ]
+    },
     {
         "action": "package",
         "config": "Release",
         "params": [
-            "{dist}\\*.asi",
-            "{dist}\\*.ini",
-            "{dist}\\*.json",
-            "{dist}\\*.toml",
+            "{dist}\\Plugins\\",
             "{dist}\\{project_name}.v{project_version}.zip"
         ]
     },
@@ -14,11 +39,7 @@
         "action": "package",
         "config": "RelWithDebInfo",
         "params": [
-            "{dist}\\*.asi",
-            "{dist}\\*.pdb",
-            "{dist}\\*.ini",
-            "{dist}\\*.json",
-            "{dist}\\*.toml",
+            "{dist}\\Plugins\\",
             "{dist}\\{project_name}.v{project_version}.zip"
         ]
     }
