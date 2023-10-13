@@ -67,7 +67,7 @@
 			"name": "compiler-msvc",
 			"hidden": true,
 			"environment": {
-				"PROJECT_COMPILER_FLAGS": "/cgthreads8 /diagnostics:caret /fp:contract /fp:except- /guard:cf- /permissive- /Zc:__cplusplus /Zc:enumTypes /Zc:lambda /Zc:preprocessor /Zc:referenceBinding /Zc:rvalueCast /Zc:templateScope /Zc:ternary /Zc:preprocessor /EHsc /MP /W4 /external:anglebrackets /external:W0",
+				"PROJECT_COMPILER_FLAGS": "/cgthreads8 /diagnostics:caret /fp:contract /fp:except- /guard:cf- /permissive- /Zc:__cplusplus /Zc:lambda /Zc:preprocessor /Zc:referenceBinding /Zc:rvalueCast /Zc:templateScope /Zc:ternary /Zc:preprocessor /EHsc /MP /W4 /external:anglebrackets /external:W0",
 				"PROJECT_COMPILER": "msvc"
 			}
 		},
