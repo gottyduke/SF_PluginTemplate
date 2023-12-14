@@ -25,6 +25,7 @@
 			"name": "packaging-vcpkg",
 			"hidden": true,
 			"cacheVariables": {
+				"USING_VCPKG": "ON",
 				"CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
 				"VCPKG_HOST_TRIPLET": "x64-windows-static-md",
 				"VCPKG_TARGET_TRIPLET": "x64-windows-static-md"
